@@ -20,11 +20,11 @@ def split_time(feat):
     return final_feat
 
 app = Flask(__name__) #Initialize the flask App
-model = pickle.load(open('DT_AdaBoost.pkl', 'rb'))
+model = pickle.load(open('model/DT_AdaBoost.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('test.html')
+    return render_template('templates/test.html')
 
 @app.route('/predict',methods=['GET', 'POST'])
 def predict():
@@ -43,23 +43,23 @@ def predict():
     output = prediction[0]
     print(output)
     if output == 0:
-        return render_template('test.html', prediction_text='There is no Departure Delay')
+        return render_template('templates/test.html', prediction_text='There is no Departure Delay')
     elif output == 1:
-        return render_template('test.html', prediction_text='Delay should be in range of 1 to 5 mins')
+        return render_template('templates/test.html', prediction_text='Delay should be in range of 1 to 5 mins')
     elif output == 2:
-        return render_template('test.html', prediction_text='Delay should be in range of 6 to 10 mins')
+        return render_template('templates/test.html', prediction_text='Delay should be in range of 6 to 10 mins')
     elif output == 3:
-        return render_template('test.html', prediction_text='Delay should be in range of 11 to 20 mins')
+        return render_template('templates/test.html', prediction_text='Delay should be in range of 11 to 20 mins')
     elif output == 4:
-        return render_template('test.html', prediction_text='Delay should be in range of 21 to 50 mins')
+        return render_template('templates/test.html', prediction_text='Delay should be in range of 21 to 50 mins')
     elif output == 5:
-        return render_template('test.html', prediction_text='Delay should be in range of 51 to 100 mins')
+        return render_template('templates/test.html', prediction_text='Delay should be in range of 51 to 100 mins')
     elif output == 6:
-        return render_template('test.html', prediction_text='Delay should be in range of 101 to 200 mins')
+        return render_template('templates/test.html', prediction_text='Delay should be in range of 101 to 200 mins')
     elif output == 7:
-        return render_template('test.html', prediction_text='Delay should be in range of 201 to 1000 mins')
+        return render_template('templates/test.html', prediction_text='Delay should be in range of 201 to 1000 mins')
     else:
-        return render_template('test.html', prediction_text='Delay should be >1000 mins')
+        return render_template('templates/test.html', prediction_text='Delay should be >1000 mins')
 
 if __name__ == "__main__":
     app.run(debug=True)
