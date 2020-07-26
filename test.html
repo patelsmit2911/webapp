@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class = "background">
+    <div class="login">
+	<h1>Flight Delay Prediction</h1>
+    <form action="{{ url_for('predict')}}"method="post">
+        <div class="first-line">
+    	    <input type="text" name="MONTH" placeholder="MONTH" required="required" />
+            <input type="text" name="DAY" placeholder="DAY" required="required" />
+		    <input type="text" name="DAY_OF_WEEK" placeholder="DAY_OF_WEEK" required="required" />
+        </div>
+        <div class="second-line">
+            <input type="text" name="AIRLINE" placeholder="AIRLINE" required="required" />
+            <input type="text" name="TAXI_OUT" placeholder="TAXI_OUT" required="required" />
+		    <input type="text" name="SCHEDULED_TIME" placeholder="SCHEDULED_TIME" required="required" />
+        </div>
+        <div class="third-line">
+            <input type="text" name="ELAPSED_TIME" placeholder="ELAPSED_TIME" required="required" />
+            <input type="text" name="AIR_TIME" placeholder="AIR_TIME" required="required" />
+		    <input type="text" name="DISTANCE" placeholder="DISTANCE" required="required" />
+        </div>
+        <div class="fourth-line">
+            <input type="text" name="TAXI_IN" placeholder="TAXI_IN" required="required" />
+            <input type="text" name="ARRIVAL_DELAY" placeholder="ARRIVAL_DELAY" required="required" />
+		    <input type="text" name="WHEELS_ON" placeholder="WHEELS_ON (hh:mm format)" required="required" />
+        </div>
+        <div class="fifth-line">
+            <input type="text" name="WHEELS_OFF" placeholder="WHEELS_OFF (hh:mm format)" required="required" />
+            <input type="text" name="SCHEDULED_DEPARTURE" placeholder="SCHEDULED_DEPARTURE (hh:mm format)" required="required" />
+            <input type="text" name="SCHEDULED_ARRIVAL" placeholder="SCHEDULED_ARRIVAL (hh:mm format)" required="required" />
+        </div>
+        <div class="sixth-line">
+            <input type="text" name="DEPARTURE_TIME" placeholder="DEPARTURE_TIME (hh:mm format)" required="required" />
+            <input type="text" name="ARRIVAL_TIME" placeholder="ARRIVAL_TIME (hh:mm format)" required="required" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+</body>
+</html>
